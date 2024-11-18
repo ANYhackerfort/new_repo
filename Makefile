@@ -12,7 +12,7 @@ BINARIES=testWordCount
 all: ${BINARIES}
 
 # Target for the main test binary
-testWordCount: tddFuncs.o WordCount.o testdict1.o
+testWordCount: tddFuncs.o WordCount.o lab06test.o
 	${CXX} $^ -o $@
 
 # Convenience target to run tests
