@@ -35,10 +35,10 @@ int WordCount::getNumUniqueWords() const {
 }
 
 int WordCount::getWordCount(std::string word) const {
-	if (word.size() == 0) {
+	std::string validWord = makeValidWord(word);
+	if (validWord.size() == 0) {
 		return 0;
 	}
-	std::string validWord = makeValidWord(word);
 	size_t bucketIndex = hash(validWord);
 	for (const std::pair<std::string, int>& pair : table[bucketIndex]) {
 		if (pair.first == validWord) {
@@ -71,7 +71,7 @@ int WordCount::incrWordCount(std::string word) {
 int WordCount::decrWordCount(std::string word) {
 	std::string validWord = makeValidWord(word);
 	if (validWord.size() == 0) { //edge case
-		return -1; 
+		return -1; //not found
 	}
 
 	size_t arrayIndex = hash(validWord);
