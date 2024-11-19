@@ -126,7 +126,7 @@ std::string WordCount::makeValidWord(std::string word) {
 	for (int i = start; i <= end; i++) {
 		if (isWordChar(word[i])) {
             validWord += std::tolower(word[i]); 
-        } else if ((word[i] == '-' || word[i] == '\'')) {
+        } else if ((word[i] == '-' || word[i] == '\'') && isWordChar(word[i-1]) && isWordChar(word[i+1])) {
             validWord += word[i]; 
         }
 	}

@@ -60,6 +60,9 @@ int main() {
     assertEquals("good-hearted", WordCount::makeValidWord("good-hearted"), "", __LINE__);
     assertEquals("good-hearted", WordCount::makeValidWord("good-hearted-------------------"), "", __LINE__);
     assertEquals("good-hearted", WordCount::makeValidWord("---------------good-hearted-------------------"), "", __LINE__);
+    assertEquals("goodhearted", WordCount::makeValidWord("---------------good--hearted-------------------"), "", __LINE__);
+    assertEquals("goodhe'arted", WordCount::makeValidWord("-------$$--'------good-$$$$$$$-h''e'arted------$$-------------"), "", __LINE__);
+
     assertEquals("", WordCount::makeValidWord("12345"), "", __LINE__);
     assertEquals("", WordCount::makeValidWord("---"), "", __LINE__);
 
